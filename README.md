@@ -13,7 +13,7 @@ This project is aimed at exploring the basics of computer graphics. The objectiv
 
 <img width="600" height="auto" alt="image" src="https://github.com/user-attachments/assets/cd604e32-6f32-4381-98ad-d9e031584d75" />
 
-<img width="998" height="834" alt="image" src="https://github.com/user-attachments/assets/444cef8a-ff1f-4521-86cd-674b5f981e5b" />
+<img width="600" height="auto" alt="image" src="https://github.com/user-attachments/assets/444cef8a-ff1f-4521-86cd-674b5f981e5b" />
 
 ## 🎯 Features
 
@@ -122,6 +122,7 @@ Alternatively, to make and execute at the same time, run `make <map name>`. For 
 - [ ] Improving colour interpolation logic so it is more informative rather than decorative
 - [ ] More accurate centering of map upon inital load
 - [ ] Fix corruption in line rendering of julia map during left/right rotation
+
 
 
 
