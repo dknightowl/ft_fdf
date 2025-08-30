@@ -11,9 +11,9 @@
 
 This project is aimed at exploring the basics of computer graphics. The objective is to create a 3D wireframe representation of a landscape based on a 2D map of altitudes, rendered using a minimal graphics library - MiniLibX.
 
-<img width="1007" height="838" alt="image" src="https://github.com/user-attachments/assets/4d35b0da-7225-4cce-9fbd-2596974cd63f" />
+<img width="998" height="834" alt="image" src="https://github.com/user-attachments/assets/cd604e32-6f32-4381-98ad-d9e031584d75" />
 
-<img width="1004" height="836" alt="image" src="https://github.com/user-attachments/assets/ef84b918-d2f8-47f1-ad8e-89c03a9c3286" />
+<img width="998" height="834" alt="image" src="https://github.com/user-attachments/assets/444cef8a-ff1f-4521-86cd-674b5f981e5b" />
 
 ## 🎯 Features
 
@@ -122,6 +122,7 @@ Alternatively, to make and execute at the same time, run `make <map name>`. For 
 - [ ] Improving colour interpolation logic so it is more informative rather than decorative
 - [ ] More accurate centering of map upon inital load
 - [ ] Fix corruption in line rendering of julia map during left/right rotation
+
 
 
 
