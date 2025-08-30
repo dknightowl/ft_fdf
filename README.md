@@ -107,7 +107,7 @@ FDF accepts `.fdf` files as its input - each file is a grid of elevation values,
 1. Run Make: `make all`
 2. `./fdf maps/42.fdf`
 
-Alternatively, to make and execute at the same time, run `make <map name>`. For instance, `make 42` to make `42.fdf` from the `maps` folder.
+Alternatively, to make and execute with a single command, run `make <map name>`. For instance, `make 42` to make `42.fdf` from the `maps` folder.
 
 ## 🔧 Technical Highlights
 
@@ -122,6 +122,7 @@ Alternatively, to make and execute at the same time, run `make <map name>`. For 
 - [ ] Improving colour interpolation logic so it is more informative rather than decorative
 - [ ] More accurate centering of map upon inital load
 - [ ] Fix corruption in line rendering of julia map during left/right rotation
+
 
 
 
