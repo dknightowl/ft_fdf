@@ -6,11 +6,15 @@
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 13:01:02 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/07/28 07:32:30 by dkhoo            ###   ########.fr       */
+/*   Updated: 2025/07/28 08:39:56 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+/*
+	Interpolates colour
+*/
 
 /*
 	Interpolates colour

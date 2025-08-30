@@ -6,12 +6,11 @@
 #    By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 02:35:44 by dkhoo             #+#    #+#              #
-#    Updated: 2025/07/28 20:46:04 by dkhoo            ###   ########.fr        #
+#    Updated: 2025/08/30 20:50:20 by dkhoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
-NAME_B = fdf_bonus
 
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror
@@ -38,28 +37,28 @@ FDF_HEADERS = $(addprefix $(FDF_INCLUDE_DIR)/, $(FDF_HEADER_FILES))
 INCLUDES = -I$(FDF_INCLUDE_DIR) -I$(LIBFT_INCLUDE_DIR) -I$(MLX_DIR)
 
 # mandatory
-SRCS_DIR = src
-SRC_FILES = bsh.c\
-			cinterp.c\
-			cparser.c\
-			errors.c\
-			hooks.c\
-			init.c\
-			log.c\
-			main.c\
-			mem_utils.c\
-			mlx_utils.c\
-			mparser_utils.c\
-			mparser.c\
-			project.c\
-			render.c\
-			sentinels.c
-SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
-OBJS = $(SRCS:.c=.o)
+# SRCS_DIR = src
+# SRC_FILES = bsh.c\
+# 			cinterp.c\
+# 			cparser.c\
+# 			errors.c\
+# 			hooks.c\
+# 			init.c\
+# 			log.c\
+# 			main.c\
+# 			mem_utils.c\
+# 			mlx_utils.c\
+# 			mparser_utils.c\
+# 			mparser.c\
+# 			project.c\
+# 			render.c\
+# 			sentinels.c
+# SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
+# OBJS = $(SRCS:.c=.o)
 
 # bonus
-B_SRCS_DIR = src_b
-B_SRC_FILES = bsh.c\
+SRCS_DIR = src
+SRC_FILES = bsh.c\
 			cinterp.c\
 			cparser.c\
 			errors.c\
@@ -77,25 +76,19 @@ B_SRC_FILES = bsh.c\
 			rotate.c\
 			sentinels.c\
 			zoom.c
-B_SRCS = $(addprefix $(B_SRCS_DIR)/, $(B_SRC_FILES))
-B_OBJS = $(B_SRCS:.c=.o)
+SRCS = $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
-bonus: $(NAME_B)
 
 $(NAME): $(OBJS) $(MLX_LIB) $(LIBFT_LIB)
 	$(CC) $(CCFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
-
-$(NAME_B): $(B_OBJS) $(MLX_LIB) $(LIBFT_LIB)
-	$(CC) $(CCFLAGS) $(B_OBJS) $(LIBFT) $(MLX) -o $(NAME_B)
 
 # -c: Compile only (no linking)
 # $< - 1st prerequisite
 # $@ - represents target
 # do not add lib dependencies here - they are only needed during linking
 $(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c $(FDF_HEADERS) $(LIBFT_HEADER)
-	$(CC) $(CCFLAGS) $(INCLUDES) -c $< -o $@
-$(B_SRCS_DIR)/%.o: $(B_SRCS_DIR)/%.c $(FDF_HEADERS) $(LIBFT_HEADER)
 	$(CC) $(CCFLAGS) $(INCLUDES) -c $< -o $@
 
 $(MLX_LIB):
@@ -105,12 +98,12 @@ $(LIBFT_LIB):
 	make -C $(LIBFT_DIR) all
 
 clean:
-	rm -rf $(OBJS) $(B_OBJS)
+	rm -rf $(OBJS)
 	make -C $(MLX_DIR) clean
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -rf $(NAME) $(NAME_B)
+	rm -rf $(NAME)
 	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
@@ -121,7 +114,7 @@ MAPS =	10-2 10-70 20-60 42 50-4 100-6\
 		pyra pyramide t1 t2\
 		bad-noperm
 
-$(MAPS): %: bonus
-	./fdf_bonus "maps/$@.fdf"
+$(MAPS): %: all
+	./fdf "maps/$@.fdf"
 
-.PHONY: all bonus clean fclean re $(MAPS)
+.PHONY: all clean fclean re $(MAPS)

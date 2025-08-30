@@ -6,11 +6,12 @@
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 14:06:19 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/07/28 21:18:44 by dkhoo            ###   ########.fr       */
+/*   Updated: 2025/07/28 21:47:17 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
 /*
 	Functions to render map image
 */
@@ -22,14 +23,23 @@ static t_point	adjusted_point(t_fdf *fdf, t_point *p)
 	int		offset_y;
 
 	p_cpy = *p;
-	p_cpy.x *= DEFAULT_SCALE;
-	p_cpy.y *= DEFAULT_SCALE;
-	p_cpy.z *= DEFAULT_SCALE;
-	project_iso(&p_cpy);
+	p_cpy.z *= fdf->altitude_adjust;
+	p_cpy.x *= fdf->zoom;
+	p_cpy.y *= fdf->zoom;
+	p_cpy.z *= fdf->zoom;
+	rotate_x(&p_cpy, fdf->rot_x);
+	rotate_y(&p_cpy, fdf->rot_y);
+	rotate_z(&p_cpy, fdf->rot_z);
+	if (fdf->projection_mode == PROJECT_ISO)
+		project_iso(&p_cpy);
+	else if (fdf->projection_mode == PROJECT_ORTHO)
+		project_ortho(&p_cpy);
 	offset_x = WIN_WIDTH / 2;
 	offset_y = (WIN_HEIGHT - fdf->map.rows * fdf->zoom) / 2;
 	p_cpy.x += offset_x;
 	p_cpy.y += offset_y;
+	p_cpy.x += fdf->pan_x;
+	p_cpy.y += fdf->pan_y;
 	return (p_cpy);
 }
 

@@ -6,7 +6,7 @@
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 03:26:48 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/07/28 08:23:08 by dkhoo            ###   ########.fr       */
+/*   Updated: 2025/07/28 08:42:03 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ void	my_mlx_pixel_put(t_data *mlx_data, t_point *p)
 
 int	mlx_display(t_fdf *fdf)
 {
-	ft_bzero(fdf->mlx_data.addr,
-		WIN_HEIGHT * WIN_WIDTH * (fdf->mlx_data.bpp / 8));
+	ft_memset(fdf->mlx_data.addr, 0, WIN_HEIGHT * fdf->mlx_data.llen);
 	render_map(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->mlx_data.img, 0, 0);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 10:09:20 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/07/28 21:05:36 by dkhoo            ###   ########.fr       */
+/*   Updated: 2025/07/28 21:05:31 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ void	log_fdf(t_fdf *fdf)
 	ft_printf("  win: %p\n", fdf->win);
 	log_mlx_data(fdf->mlx_data);
 	ft_printf("  projection_mode: %d\n", fdf->projection_mode);
+	ft_printf("  zoom: %d\n", fdf->zoom);
+	ft_printf("  pan_x: %d\n", fdf->pan_x);
+	ft_printf("  pan_y: %d\n", fdf->pan_y);
+	ft_printf("  is_mouse_press: %d\n", fdf->is_mouse_press);
 	ft_printf("t_map:\n");
 	log_map(fdf->map);
 	ft_printf(">> end of log.");

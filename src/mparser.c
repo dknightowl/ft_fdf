@@ -6,11 +6,12 @@
 /*   By: dkhoo <dkhoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 01:51:39 by dkhoo             #+#    #+#             */
-/*   Updated: 2025/07/28 21:41:39 by dkhoo            ###   ########.fr       */
+/*   Updated: 2025/07/28 21:42:00 by dkhoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
 /*
 	Map parser. Parses fdf maps into structs. Maps must be correctly formatted.
 */
